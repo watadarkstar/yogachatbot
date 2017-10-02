@@ -21,7 +21,7 @@
     "test": "yarn lint && flow && jest --coverage",
     "precommit": "yarn test",
     "prepush": "yarn test && yarn prod:build",
-    "heroku-postbuild": "yarn prod:build",
+    "heroku-postbuild": "yarn prod:build"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
