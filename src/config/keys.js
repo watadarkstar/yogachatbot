@@ -1,8 +1,6 @@
-import prod from './prod'
-import dev from './dev'
-
+/* eslint-disable */
 if (process.env.NODE_ENV === 'production') {
-  module.exports = prod
+  module.exports = require('./prod')
 } else {
-  module.exports = dev
+  module.exports = require('./dev')
 }
