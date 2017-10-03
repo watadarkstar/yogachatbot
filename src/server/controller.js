@@ -1,19 +1,15 @@
 // @flow
 
 import _ from 'lodash'
+import messageHandler from './lib/messageHandler'
 
 export const homePage = () => null
 
 export const fbMessageCtrl = (req: Object) => {
   const data = req.body
-  console.log(data)
   _.each(data.entry, (entry) => {
     _.each(entry.messaging, (event) => {
-      if (event.message) {
-        console.log('Message', event.message)
-      } else {
-        console.log('Webhook recieved unknown event')
-      }
+      messageHandler(event)
     })
   })
 }

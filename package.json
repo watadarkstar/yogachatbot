@@ -6,8 +6,8 @@
     "> 1%"
   ],
   "engines": {
-    "node": "7.x",
-    "yarn": "0.20.3"
+    "node": "8.x",
+    "yarn": "1.0.2"
   },
   "scripts": {
     "start": "yarn dev:start",
@@ -19,9 +19,12 @@
     "prod:start": "heroku local",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "test": "yarn lint && flow && jest --coverage",
+    "precommit": "yarn test",
+    "prepush": "yarn test && yarn prod:build",
     "heroku-postbuild": "yarn prod:build"
   },
   "dependencies": {
+    "apiai": "^4.0.3",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.18.2",
     "compression": "^1.6.2",
@@ -39,7 +42,8 @@
     "react-router-dom": "^4.0.0-beta.8",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
